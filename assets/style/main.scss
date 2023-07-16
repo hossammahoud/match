@@ -1,0 +1,266 @@
+@import "./variables.scss";
+
+// start Global Styles
+* {
+  box-sizing: border-box;
+}
+.w-50 {
+  width: 50% !important;
+}
+.w-25 {
+  width: 25% !important;
+}
+.w-75 {
+  width: 75% !important;
+}
+.w-80 {
+  width: 80% !important;
+}
+.w-90 {
+  width: 90% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 48px;
+}
+h3 {
+  font-size: 34px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+p {
+  font-size: 16px;
+}
+.subtitle1 {
+  font-size: 16px;
+}
+.subtitle2 {
+  font-size: 14px;
+}
+.body1 {
+  font-size: 16px;
+}
+.body2 {
+  font-size: 14px;
+}
+.caption {
+  font-size: 12px;
+}
+.overline {
+  font-size: 10px;
+}
+.fill-height {
+  height: 100vh;
+}
+// End Global Styles
+
+// Start v-Main
+.v-main {
+  padding: 0px 0px 0px !important;
+}
+// End V-main
+// Start Footer
+footer {
+  padding: 40px 0 !important;
+  background-color: #263238 !important;
+  color: #cfd8dc !important;
+  position: relative !important;
+  a {
+    color: #cfd8dc !important;
+    .theme--light.v-btn {
+      color: #cfd8dc !important;
+    }
+  }
+  .socialMedia {
+    .v-btn {
+      color: #cfd8dc !important;
+    }
+  }
+  .logo {
+    width: 150px;
+  }
+  .hr {
+    width: 100%;
+    height: 1px;
+    background-color: #cfd8dc;
+    margin-top: 30px;
+  }
+}
+// End Footer
+.questions-section {
+  margin-top: 74px;
+}
+//start login
+.formCard {
+  // border-radius: 0;
+  // border: 0;
+  // padding: 2rem;
+
+  .conOfFormSection {
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    .loginHeader {
+      text-align: center;
+      img {
+        width: 80%;
+      }
+    }
+
+    .formInput {
+      color: #242021;
+
+      .v-input__slot {
+        box-shadow: none !important;
+      }
+
+      label.v-label.v-label--active {
+        left: -4px !important;
+      }
+
+      .v-icon {
+        color: #a0a0a0;
+
+        &.primary--text {
+          color: #a0a0a0;
+        }
+      }
+    }
+  }
+
+  .forgetPass {
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: #febf2c;
+      font-size: 1rem;
+    }
+  }
+
+  .btnLoginCon {
+    button.primaryBtn.loginBtn.v-btn {
+      min-width: 100%;
+      background: #febf2c;
+      min-height: 60px;
+      border-radius: 10px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+//End login
+//start questions
+.headerComponent {
+  background-image: url("@/assets/Photos/Match platform_Vis 5-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+// .HomeComponent {
+//   background-image: url("@/assets/Photos/Match platform_Vis 5 -lowRes.jpg");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 100vh;
+// }
+// .questionComponent {
+//   background-image: url("@/assets/Photos/Match platform_Vis 5-bg.jpg");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 100vh;
+// }
+.TeamComponent {
+  background-image: url("@/assets/Photos/Match platform_Vis 5-bg-slogn.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.conOfForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submitBtn {
+  background-color: #febf2c !important;
+  width: 100%;
+  font-size: 20px !important;
+  text-transform: capitalize !important;
+  color: #4343c3 !important;
+  padding: 25px !important;
+}
+.startBtn {
+  background-color: #febf2c !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px !important;
+  width: 100%;
+  font-size: 20px !important;
+  text-transform: capitalize !important;
+  color: #4343c3 !important;
+  padding: 25px !important;
+}
+.link {
+  width: 50%;
+}
+.conOfTeam {
+  font-size: 20px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  padding: 20px;
+}
+.loginForm {
+  background: #ffffffd9;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 30px;
+}
+.questionForm {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 30px;
+}
+.startForm {
+  background: #ffffffd9;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.loginlink {
+  text-decoration: none;
+  font-size: 20px;
+}
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.checkboxItem {
+  padding: 0px 20px;
+}
+.radio-container {
+  display: flex;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+//End questions
