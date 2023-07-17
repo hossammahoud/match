@@ -3,7 +3,15 @@
     <v-app-bar fixed app>
       <v-container>
         <v-row>
-          <v-toolbar-title> Nav </v-toolbar-title>
+          <v-toolbar-title>
+            <nuxt-link to="/" class="link">
+              <img
+                class="match-logo"
+                src="../../assets/Photos/Match/match_logo.png"
+                alt=""
+              />
+            </nuxt-link>
+          </v-toolbar-title>
         </v-row>
       </v-container>
     </v-app-bar>
@@ -30,6 +38,6 @@ export default {
 </script>
 <style>
 .theme--light.v-app-bar.v-toolbar.v-sheet {
-  background-color: #fe862c;
+  background-color: #ffffff;
 }
 </style>

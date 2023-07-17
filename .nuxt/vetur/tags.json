@@ -1,0 +1,26 @@
+{
+  "Header": {
+    "description": "Auto imported from components/global/header.vue"
+  },
+  "Home": {
+    "description": "Auto imported from components/home/home.vue"
+  },
+  "LayoutFooter": {
+    "description": "Auto imported from components/layout/footer.vue"
+  },
+  "LayoutNavbar": {
+    "description": "Auto imported from components/layout/navbar.vue"
+  },
+  "Login": {
+    "description": "Auto imported from components/login/login.vue"
+  },
+  "Questions": {
+    "description": "Auto imported from components/questions/questions.vue"
+  },
+  "Register": {
+    "description": "Auto imported from components/register/register.vue"
+  },
+  "Team": {
+    "description": "Auto imported from components/team/team.vue"
+  }
+}

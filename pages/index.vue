@@ -2,8 +2,8 @@
   <div class="homepage">
     <section class="header-section">
       <Home
-        src="https://cat-sw.com/Emails/Matching/BG.jpg"
-        src-large="https://cat-sw.com/Emails/Matching/BG.jpg"
+        srcSmall="https://cat-sw.com/Emails/Matching/Wave-BG-mobile.jpg"
+        srcLarge="https://cat-sw.com/Emails/Matching/Wave-BG-Big.jpg"
       />
     </section>
   </div>

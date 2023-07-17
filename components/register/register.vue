@@ -1,5 +1,5 @@
 <template>
-  <div class="headerComponent">
+  <div class="RegisterComponent">
     <v-form class="fill-height conOfForm">
       <v-container>
         <div>

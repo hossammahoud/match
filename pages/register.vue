@@ -3,7 +3,7 @@
     <section class="">
       <Navbar />
     </section>
-    <section class="">
+    <section class="mt-12">
       <Register />
     </section>
   </div>

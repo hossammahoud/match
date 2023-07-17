@@ -1,0 +1,37 @@
+[
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_654ec239"
+  },
+  {
+    "name": "questions",
+    "path": "/questions",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/questions.vue",
+    "chunkName": "pages/questions",
+    "_name": "_37a533c6"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/register.vue",
+    "chunkName": "pages/register",
+    "_name": "_068d0003"
+  },
+  {
+    "name": "team",
+    "path": "/team",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/team.vue",
+    "chunkName": "pages/team",
+    "_name": "_98dbea86"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_c8b1c1bc"
+  }
+]

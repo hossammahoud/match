@@ -5,10 +5,15 @@
       <span
         ref="magnificationElement"
         class="preview"
-        v-bind:style="{ backgroundImage: 'url(' + src + ')' }"
+        v-bind:style="{ backgroundImage: 'url(' + getBackgroundImage() + ')' }"
       >
-        <div class="d-flex justify-end pa-4">
-          <nuxt-link to="/login" class="loginlink"
+        <div class="d-flex justify-space-between pa-4">
+          <img
+            class="match-logo"
+            src="../../assets/Photos/Match/match_logo.png"
+            alt=""
+          />
+          <nuxt-link to="/login" class="loginlink px-3"
             ><span
               @mouseover="hideMagnifyingGlass"
               @mouseout="showMagnifyingGlass"
@@ -16,7 +21,14 @@
             >
           </nuxt-link>
         </div>
-        <v-row class="d-flex justify-center conOfForm fill-height">
+        <v-col class="d-flex align-center justify-center slogan-container">
+          <img
+            class="slogn-image"
+            src="../../assets/Photos/Match/Slogan.png"
+            alt=""
+          />
+        </v-col>
+        <v-row class="d-flex justify-center conOfForm">
           <v-col
             cols="12"
             md="6"
@@ -43,13 +55,13 @@
 <script>
 export default {
   props: {
-    src: String,
     srcLarge: String,
+    srcSmall: String,
   },
   computed: {
     glassStyle() {
       return {
-        backgroundImage: `url(${this.srcLarge})`,
+        backgroundImage: `url(${this.getBackgroundImage()})`,
         backgroundPosition: this.backgroundPos,
         left: `${this.cursorX}px`,
         top: this.cursorY + "px",
@@ -57,6 +69,10 @@ export default {
     },
   },
   methods: {
+    getBackgroundImage() {
+      const isMobile = window.innerWidth <= 480; // Adjust the breakpoint to match your requirements
+      return isMobile ? this.srcSmall : this.srcLarge;
+    },
     hideMagnifyingGlass() {
       this.$refs.glass.style.display = "none";
     },
@@ -194,7 +210,7 @@ $sizes: (
   "(max-width: 320px)" 100% 100vh,
   "(max-width: 480px)" 100% 100vh,
   "(min-width: 481px)" 100% 100vh,
-  "(min-width: 1024px)" 100% 80vh,
+  "(min-width: 1024px)" 100% 100vh,
   "(min-width: 1280px)" 100% 100vh
 );
 
