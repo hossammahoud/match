@@ -1,4 +1,5 @@
 export { default as Header } from '../../components/global/header.vue'
+export { default as Admin } from '../../components/admin/admin.vue'
 export { default as Home } from '../../components/home/home.vue'
 export { default as LayoutFooter } from '../../components/layout/footer.vue'
 export { default as LayoutNavbar } from '../../components/layout/navbar.vue'

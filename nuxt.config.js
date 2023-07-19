@@ -55,11 +55,8 @@ export default {
     "nuxt-i18n",
   ],
   axios: {
-    // http: process.env.NODE_ENV === "development",
-    // baseURL: "https://api.vyahealthcare.sa/api/v1/",
-    // imgURL: "https://api.vyahealthcare.sa/",
-    baseURL: "",
-    imgURL: "",
+    baseURL: "https://match.cat-sw.com/api/v1",
+    imgURL: "https://match.cat-sw.com/api/v1",
     // proxy: true
   },
   // i18n: {

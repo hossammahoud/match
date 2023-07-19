@@ -1,67 +1,93 @@
 <template>
-  <div class="questionComponent">
-    <v-form class="conOfForm">
-      <v-container>
-        <v-row class="d-flex justify-center">
-          <v-col cols="12" md="8" class="questionForm">
-            <v-col cols="12">
-              <label
-                >How do you spend your free time? "you can choose max 2"</label
-              >
-              <div class="checkbox-container">
-                <v-checkbox
-                  class="checkboxItem"
-                  v-for="item in items"
-                  :key="item.id"
-                  :label="item.name"
-                  :value="item"
-                  :value-comparator="comparator"
-                  v-model="selectedOptions"
-                  @change="handleSelectionChange"
-                ></v-checkbox>
-              </div>
-            </v-col>
+  <div>
+    <div v-if="Me.type == 'User'">
+      <div class="questionComponent" v-if="Me.is_surveyed == false">
+        <v-form class="conOfForm">
+          <v-container>
+            <v-row class="d-flex justify-center">
+              <v-col cols="12" md="8" class="questionForm">
+                <v-col cols="12" v-if="questionsData[0]">
+                  <label>{{ questionsData[0].name }} </label>
+                  <div class="checkbox-container">
+                    <v-checkbox
+                      class="checkboxItem"
+                      v-for="item in questionsData[0].options"
+                      :key="item.id"
+                      :label="item.name"
+                      :value="item"
+                      :value-comparator="comparator"
+                      v-model="selectedOptions"
+                    ></v-checkbox>
+                  </div>
+                </v-col>
 
-            <v-col cols="12" v-if="selectedOptions.length > 1">
-              <label>Which one do you prefer the most</label>
+                <v-col cols="12" v-if="selectedOptions.length > 1">
+                  <label>{{ questionsData[1].name }}</label>
 
-              <v-radio-group v-model="mostPrefered">
-                <v-radio
-                  v-for="item in filteredItems"
-                  :key="item"
-                  :label="item.name"
-                  :value="item.name"
-                ></v-radio>
-              </v-radio-group>
-            </v-col>
-            <v-col cols="12">
-              <label>What time of day would you be most available?</label>
+                  <v-radio-group v-model="mostPrefered">
+                    <v-radio
+                      v-for="item in filteredItems"
+                      :key="item"
+                      :label="item.name"
+                      :value="item.name"
+                    ></v-radio>
+                  </v-radio-group>
+                </v-col>
 
-              <div class="radio-container">
-                <v-radio-group v-model="day" class="radio-group">
-                  <v-radio label="Mornings" value="Mornings"></v-radio>
-                  <v-radio label="Afternoons" value="Afternoons"></v-radio>
-                  <v-radio label="Evenings" value="Evenings"></v-radio>
-                </v-radio-group>
-              </div>
-            </v-col>
-            <v-col cols="12">
-              <label>What days of the week would you be most available?</label>
+                <v-col cols="12" v-if="questionsData[2]">
+                  <label>{{ questionsData[2].name }}</label>
 
-              <v-radio-group v-model="week">
-                <v-radio label="Weekends" value="Weekends"></v-radio>
-                <v-radio label="Weekdays" value="Weekdays"></v-radio>
-              </v-radio-group>
-            </v-col>
-            <v-col cols="12" class="d-flex justify-end">
-              <nuxt-link to="/team">
-                <v-btn class="submitBtn"> Submit </v-btn>
-              </nuxt-link>
-            </v-col>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
+                  <div class="radio-container">
+                    <v-radio-group
+                      v-model="selectedQuestionThree"
+                      class="radio-group"
+                    >
+                      <v-radio
+                        v-for="item in questionsData[2].options"
+                        :key="item"
+                        :label="item.name"
+                        :value="item.id"
+                      ></v-radio>
+                    </v-radio-group>
+                  </div>
+                </v-col>
+                <v-col cols="12" v-if="questionsData[3]">
+                  <label>{{ questionsData[3].name }}</label>
+
+                  <div class="radio-container">
+                    <v-radio-group
+                      v-model="selectedQuestionFour"
+                      class="radio-group"
+                    >
+                      <v-radio
+                        v-for="item in questionsData[3].options"
+                        :key="item"
+                        :label="item.name"
+                        :value="item.id"
+                      ></v-radio>
+                    </v-radio-group>
+                  </div>
+                </v-col>
+                {{ latesSelected }}
+                <v-col cols="12" class="d-flex justify-end">
+                  <nuxt-link to="/team">
+                    <v-btn class="submitBtn" @click="AnswerQuestions()">
+                      Submit
+                    </v-btn>
+                  </nuxt-link>
+                </v-col>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-form>
+      </div>
+      <div v-else>
+        <p class="mt-12">You have already answered the survey</p>
+      </div>
+    </div>
+    <div v-else>
+      <p class="mt-12">You are not a user</p>
+    </div>
   </div>
 </template>
 
@@ -70,51 +96,101 @@ export default {
   data() {
     return {
       day: null,
-      mostPrefered: null,
+
       week: null,
-      items: [
-        {
-          id: 1,
-          name: "Cinema",
-        },
-        {
-          id: 2,
-          name: "Cooking",
-        },
-        {
-          id: 3,
-          name: "Chess",
-        },
-        {
-          id: 4,
-          name: "Football",
-        },
-        {
-          id: 5,
-          name: "PlayStation",
-        },
-      ],
+
+      questionsAnswers: {
+        question_id: "",
+        option_id: "",
+      },
+      Me: {},
+      questions: [],
+      questionsData: [],
       selectedOptions: [],
-      allItems: ["Cinema", "Cooking", "Chess", "Football", "PlayStation"],
+      mostPrefered: [],
+      selectedQuestionThree: [],
+      selectedQuestionFour: [],
     };
   },
   computed: {
     filteredItems() {
-      return this.items.filter((item) => this.selectedOptions.includes(item));
+      return this.questionsData[0].options.filter((item) =>
+        this.selectedOptions.includes(item)
+      );
     },
     comparator(a, b) {
       return a && b && a.name === b.name;
     },
   },
+  created() {
+    this.getQuestionsData();
+  },
+  watch: {
+    mostPrefered(newVal) {
+      // Set answer_name to the selected answer name
+      this.questionsAnswers.other_answer = newVal;
+    },
+  },
   methods: {
+    async getQuestionsData() {
+      const data = await this.$axios.$get("/questions");
+      this.questionsData = data.data;
+      console.log("this.questions", this.questionsData);
+    },
+
+    async AnswerQuestions() {
+      const answers = [];
+
+      // Process the first question's answer
+      if (this.selectedOptions.length > 0) {
+        const questionOneData = {
+          question_id: this.questionsData[0].id,
+          option_id:
+            `${this.selectedOptions[0].id}` +
+            "," +
+            `${this.selectedOptions[1].id}`,
+        };
+
+        answers.push(questionOneData);
+      }
+
+      // Process the second question's answer
+      if (this.selectedOptions.length > 1 && this.mostPrefered !== "") {
+        answers.push({
+          question_id: this.questionsData[1].id,
+          other_answer: this.mostPrefered,
+        });
+      }
+
+      // Process the third question's answer
+      if (this.selectedQuestionThree !== "") {
+        answers.push({
+          question_id: this.questionsData[2].id,
+          option_id: this.selectedQuestionThree,
+        });
+      }
+
+      // Process the fourth question's answer
+      if (this.selectedQuestionFour !== "") {
+        answers.push({
+          question_id: this.questionsData[3].id,
+          option_id: this.selectedQuestionFour,
+        });
+      }
+      const answersArray = {
+        answers: answers,
+      };
+      const data = await this.$axios.$post("/survey", answersArray);
+      this.questions = data.data;
+      console.log("this.registerData", this.questions);
+
+      const Me = await this.$axios.$post("/auth/me");
+      this.Me = data.data;
+      console.log("Me2", Me);
+    },
+
     comparator(a, b) {
       return a && b && a.id === b.id;
-    },
-    handleSelectionChange() {
-      if (this.selectedOptions.length > 2) {
-        // If the user selects more than two options, remove the last selected option
-        this.selectedOptions.pop();
-      }
     },
   },
 };

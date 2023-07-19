@@ -1,5 +1,12 @@
 [
   {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/admin.vue",
+    "chunkName": "pages/admin",
+    "_name": "_65d319c2"
+  },
+  {
     "name": "login",
     "path": "/login",
     "component": "/Volumes/Data - Data/CAT_Work/Vue/match/pages/login.vue",

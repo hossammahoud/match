@@ -2,6 +2,9 @@
   "Header": {
     "description": "Auto imported from components/global/header.vue"
   },
+  "Admin": {
+    "description": "Auto imported from components/admin/admin.vue"
+  },
   "Home": {
     "description": "Auto imported from components/home/home.vue"
   },

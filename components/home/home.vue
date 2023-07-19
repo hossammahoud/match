@@ -62,6 +62,7 @@ export default {
     glassStyle() {
       return {
         backgroundImage: `url(${this.getBackgroundImage()})`,
+        //  backgroundImage: `@/assets/Photo/Match/magnifier.png`,
         backgroundPosition: this.backgroundPos,
         left: `${this.cursorX}px`,
         top: this.cursorY + "px",
@@ -200,10 +201,10 @@ export default {
 
 <style lang="scss">
 // Magnifying glass options
-$border-size: 5px; // Modify the border width of the magnifying glass component
-$border-color: #666666; // Modify the border color of the magnifying glass component
-$magnifier-width: 150px; // Modify the width of the magnifying glass component
-$magnifier-height: 150px; // Modify the height of the magnifying glass component
+$border-size: 5px;
+$border-color: #666666;
+$magnifier-width: 50px;
+$magnifier-height: 50px;
 
 // Define your responsive sizes of
 $sizes: (
@@ -230,12 +231,13 @@ $sizes: (
 
     .magnifying-glass {
       position: absolute;
+      background-image: url("@/assets/Photos/Match/magnifier.png");
 
       border: 15px solid #988d8df2;
       border-radius: 50%;
       cursor: none;
-      width: 300px;
-      height: 300px;
+      width: 150px;
+      height: 150px;
       transform: translate(
         (-1 * $magnifier-width/2),
         (-1 * $magnifier-width/2)
